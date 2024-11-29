@@ -20,7 +20,7 @@ public class Main {
             System.out.printf("6. 4261-es taxis megtett km-ek: %s%n", getTaxisKm());
             System.out.printf("7. Hibás fuvarok száma: %d%n", getHibasFuvarokSzama());
             System.out.printf("8. Szerepel-e a 1452-es azonosítójú taxi: %b%n", isTaxiExists(1452));
-            //System.out.printf("9. A 3 legrövidebb utazás: %s%n", getHaromLeghosszabbFuvar());
+            System.out.printf("9. A 3 legrövidebb utazás: %s%n", getHaromLeghosszabbFuvar());
             System.out.printf("10. December 24.-én hány fuvar volt: %d%n", getFuvarokSzamaDecember24());
             System.out.printf("11. December 31.-én a borravaló arány: %.2f%%%n", getBorravaloAranyDecember31());
         } catch (IOException e) {
@@ -75,13 +75,13 @@ public class Main {
         return fuvarok.stream().anyMatch(fuvar -> fuvar.getTaxi_id() == taxiId);
     }
     // 9. Feladat
-    //private static List<Fuvar> getHaromLeghosszabbFuvar() {
-    //    return fuvarok.stream()
-    //            .filter(fuvar -> fuvar.getIdotartam() > 0)
-    //            .sorted(Comparator.comparingInt(Fuvar::getIdotartam))
-    //            .limit(3)
-    //            .toList();
-    //}
+    private static List<Fuvar> getHaromLeghosszabbFuvar() {
+        return fuvarok.stream()
+                .filter(fuvar -> fuvar.getIdotartam() > 0)
+                .sorted(Comparator.comparingInt(Fuvar::getIdotartam))
+                .limit(3)
+                .toList();
+    }
     // 10. Feladat
     private static long getFuvarokSzamaDecember24() {
         return fuvarok.stream()
